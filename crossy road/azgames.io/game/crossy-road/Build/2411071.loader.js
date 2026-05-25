@@ -56,7 +56,7 @@ function createUnityInstance(t, n, l) {
             "string" == typeof e && -1 != e.indexOf("wasm streaming compile failed") && (-1 != e.toLowerCase().indexOf("mime") ? d('HTTP Response Header "Content-Type" configured incorrectly on the server for file ' + u.codeUrl + ' , should be "application/wasm". Startup time performance will suffer.', "warning") : d('WebAssembly streaming compilation failed! This can happen for example if "Content-Encoding" HTTP header is incorrectly enabled on the server for file ' + u.codeUrl + ", but the file is not pre-compressed on disk (or vice versa). Check the Network tab in browser Devtools to debug server header configuration.", "warning"))
         },
         locateFile: function(e) {
-            return e
+            return "https://raw.githubusercontent.com/schoolind/games1/main/crossy%20road/azgames.io/game/crossy-road/Build/" + e
         },
         disabledCanvasEvents: ["contextmenu", "dragstart"]
     };
@@ -66,6 +66,10 @@ function createUnityInstance(t, n, l) {
     n)
         u[o] = n[o];
     u.streamingAssetsUrl = new URL(u.streamingAssetsUrl,document.URL).href;
+    var ghBase = "https://raw.githubusercontent.com/schoolind/games1/main/crossy%20road/azgames.io/game/crossy-road/Build/";
+    ["dataUrl","frameworkUrl","codeUrl"].forEach(function(k) {
+        u[k] = ghBase + u[k].split("/").pop()
+    });
     var i = u.disabledCanvasEvents.slice();
     function a(e) {
         e.preventDefault()
