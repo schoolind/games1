@@ -5,7 +5,7 @@
     // Inject sidebar CSS
     var cssLink = document.createElement('link');
     cssLink.rel = 'stylesheet';
-    cssLink.href = baseUrl + '/styles/sidebar-v2.css';
+    cssLink.href = 'https://raw.githubusercontent.com/schoolind/games1/refs/heads/main/scrips/style.css';
     document.head.appendChild(cssLink);
 
     // Inject extra styles for favorites/recently played in sidebar
